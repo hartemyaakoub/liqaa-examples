@@ -4,11 +4,11 @@ Five **real applications** built on the LIQAA video API. Not toy demos — these
 
 | Example | Stack | What it demonstrates | TTV* |
 | ------- | ----- | -------------------- | ---- |
-| 🆘 [`support-widget`](./support-widget) | Next.js 16, server actions | Drop-in support button on any page · agent queue · CSAT survey | 5 min |
-| 🩺 [`telehealth`](./telehealth) | Laravel 12, Livewire 3 | Doctor / patient waiting room · prescription PDF · HIPAA-aligned defaults | 12 min |
-| 🎓 [`virtual-classroom`](./virtual-classroom) | Next.js + Tailwind | 1-to-many lecture · raise-hand · breakout rooms · recording → S3 | 10 min |
-| 💼 [`sales-demo`](./sales-demo) | React + Vite | Embed in your marketing site · screen-share · auto-recap email | 8 min |
-| 🎤 [`interview-platform`](./interview-platform) | Express.js + vanilla JS | Coding pad · timed questions · candidate-scored panel | 15 min |
+| [`support-widget`](./support-widget) | Next.js 16, server actions | Drop-in support button on any page · agent queue · CSAT survey | 5 min |
+| [`telehealth`](./telehealth) | Laravel 12, Livewire 3 | Doctor / patient waiting room · prescription PDF · HIPAA-aligned defaults | 12 min |
+| [`virtual-classroom`](./virtual-classroom) | Next.js + Tailwind | 1-to-many lecture · raise-hand · breakout rooms · recording → S3 | 10 min |
+| [`sales-demo`](./sales-demo) | React + Vite | Embed in your marketing site · screen-share · auto-recap email | 8 min |
+| [`interview-platform`](./interview-platform) | Express.js + vanilla JS | Coding pad · timed questions · candidate-scored panel | 15 min |
 
 \* TTV = time-to-video on a fresh laptop, assuming you already have a `pk_live_` and `sk_live_`.
 
@@ -36,12 +36,12 @@ npm install && npm run dev
 
 ## Architecture rules followed by every example
 
-- ✅ **No `sk_live_` in the browser.** Token exchange happens server-side ([ADR-002](https://github.com/hartemyaakoub/liqaa-architecture/blob/main/adrs/002-stripe-pattern-pk-sk-key-separation.md)).
-- ✅ **JWT TTL ≤ 60 minutes.** Long-lived tokens are a liability ([ADR-003](https://github.com/hartemyaakoub/liqaa-architecture/blob/main/adrs/003-jwt-token-exchange-vs-long-lived-keys.md)).
-- ✅ **Webhook signatures verified in constant time.** Every example has a `/webhooks/liqaa` route with `LIQAA-Signature` verification.
-- ✅ **No PII in URLs.** Room IDs are opaque (`room_01HK7N…`), not customer emails.
-- ✅ **Idempotency keys** on every `POST` that creates state.
-- ✅ **Graceful degradation.** If LIQAA is unreachable, the UI tells the user — it doesn't silently fail.
+- **No `sk_live_` in the browser.** Token exchange happens server-side ([ADR-002](https://github.com/hartemyaakoub/liqaa-architecture/blob/main/adrs/002-stripe-pattern-pk-sk-key-separation.md)).
+- **JWT TTL ≤ 60 minutes.** Long-lived tokens are a liability ([ADR-003](https://github.com/hartemyaakoub/liqaa-architecture/blob/main/adrs/003-jwt-token-exchange-vs-long-lived-keys.md)).
+- **Webhook signatures verified in constant time.** Every example has a `/webhooks/liqaa` route with `LIQAA-Signature` verification.
+- **No PII in URLs.** Room IDs are opaque (`room_01HK7N…`), not customer emails.
+- **Idempotency keys** on every `POST` that creates state.
+- **Graceful degradation.** If LIQAA is unreachable, the UI tells the user — it doesn't silently fail.
 
 ## What's not in these examples (deliberate)
 
@@ -51,7 +51,7 @@ npm install && npm run dev
 
 ## License
 
-[MIT](./LICENSE) — fork, modify, ship as your own product. We don't ask for attribution (but a ⭐ helps us keep this maintained).
+[MIT](./LICENSE) — fork, modify, ship as your own product. We don't ask for attribution (but a helps us keep this maintained).
 
 ---
 
